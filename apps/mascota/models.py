@@ -1,4 +1,5 @@
 from django.db import models
+from apps.adopcion.models import Persona
 
 # Create your models here.
 
@@ -7,4 +8,4 @@ class Mascota(models.Model):
 	sexo = models.CharField(max_length=10)
 	edad_aproximada = models.IntegerField()
 	fecha_rescate = models.DateField()
-	
+	persona = models.ForeignKey(Persona,null=True,blank=True,on_delete=models.CASCADE)
