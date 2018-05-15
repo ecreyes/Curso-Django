@@ -14,8 +14,9 @@
           Mascotas
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href=''>Inicio</a>
-          <a class="dropdown-item" href="listar">Listar</a>
+          <a class="dropdown-item" href="{% url 'mascota:index' %}">Inicio</a>
+          <a class="dropdown-item" href="{% url 'mascota:mascota_crear' %}">Nuevo</a>
+          <a class="dropdown-item" href="{% url 'mascota:mascota_listar' %}">Listar</a>
         </div>
       </li>
       <li class="nav-item dropdown">
