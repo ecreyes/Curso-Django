@@ -26,4 +26,5 @@ class MascotaForm(forms.ModelForm):
 			'edad_aproximada':forms.TextInput(attrs={'class':'form-control'}),
 			'fecha_rescate': forms.TextInput(attrs={'class':'form-control'}),
 			'persona': forms.Select(attrs={'class':'form-control'}),
-			'vacuna': forms.CheckBoxSelectMultiple(),
+			'vacuna': forms.CheckboxSelectMultiple(),
+		}
