@@ -1,32 +1,38 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-<table class="table">
-	<thead  class="thead-dark">
-		<tr>
-			<th scope="col">#</th>
-			<th scope="col">Nombre</th>
-			<th scope="col">Sexo</th>
-			<th scope="col">Edad</th>
-			<th scope="col">Fecha de rescate</th>
-			<th scope="col">Adoptante</th>
-		</tr>
-	</thead>
-	<tbody>
-		{% if mascotas %}
-			{% for mascota in mascotas %}
+<div class="container">
+	<table class="table">
+		<thead  class="thead-dark">
 			<tr>
-				<th>{{mascota.id}}</th>
-				<td>{{mascota.nombre}}</td>
-				<td>{{mascota.sexo}}</td>
-				<td>{{mascota.edad_aproximada}}</td>
-				<td>{{mascota.fecha_rescate}}</td>
-				<td>{{mascota.persona.nombre}} - {{mascota.persona.apellidos}}</td>
+				<th scope="col">#</th>
+				<th scope="col">Nombre</th>
+				<th scope="col">Sexo</th>
+				<th scope="col">Edad</th>
+				<th scope="col">Fecha de rescate</th>
+				<th scope="col">Adoptante</th>
+				<th scope="col">Acciones</th>
 			</tr>
-			{% endfor %}
-		{% else %}		
-		<h1>No hay registros de mascotas</h1>
-		{% endif %}
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+			{% if mascotas %}
+				{% for mascota in mascotas %}
+				<tr>
+					<th>{{mascota.id}}</th>
+					<td>{{mascota.nombre}}</td>
+					<td>{{mascota.sexo}}</td>
+					<td>{{mascota.edad_aproximada}}</td>
+					<td>{{mascota.fecha_rescate}}</td>
+					<td>{{mascota.persona.nombre}} - {{mascota.persona.apellidos}}</td>
+					<td>
+						<a class="btn btn-outline-primary" href="{% url 'mascota:mascota_editar' mascota.id%}">Editar</a>
+					</td>
+				</tr>
+				{% endfor %}
+			{% else %}		
+			<h1>No hay registros de mascotas</h1>
+			{% endif %}
+		</tbody>
+	</table>	
+</div>
 {% endblock %}
