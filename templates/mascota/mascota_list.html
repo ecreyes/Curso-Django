@@ -26,6 +26,7 @@
 					<td>{{mascota.persona.nombre}} - {{mascota.persona.apellidos}}</td>
 					<td>
 						<a class="btn btn-outline-primary" href="{% url 'mascota:mascota_editar' mascota.id%}">Editar</a>
+						<a class="btn btn-outline-danger" href="{% url 'mascota:mascota_eliminar' mascota.id%}">Eliminar</a>
 					</td>
 				</tr>
 				{% endfor %}
