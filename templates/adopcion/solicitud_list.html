@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="container">
+	<table class="table">
+		<thead  class="thead-dark">
+			<tr>
+				<th scope="col"># Solicitud</th>
+				<th scope="col">Adoptante</th>
+				<th scope="col"># Mascotas</th>
+				<th scope="col">Razones</th>
+				<th scope="col">Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% if object_list %}
+				{% for solicitud in object_list %}
+				<tr>
+					<th>{{solicitud.id}}</th>
+					<td>{{solicitud.persona.nombre}} - {{solicitud.persona.apellidos}}</td>
+					<td>{{solicitud.numero_mascotas}}</td>
+					<td>{{solicitud.razones}}</td>
+					<td>
+						<a class="btn btn-outline-primary" href="">Editar</a>
+						<a class="btn btn-outline-danger" href="">Eliminar</a>
+					</td>
+				</tr>
+				{% endfor %}
+			{% else %}		
+			<h1>No hay registros de mascotas</h1>
+			{% endif %}
+		</tbody>
+	</table>	
+</div>
+{% endblock %}
