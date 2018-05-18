@@ -33,7 +33,7 @@ class SolicitudCreate(CreateView):
 	def post(self,request,*args,**kwargs):
 		self.object = self.get_object
 		form = self.form_class(request.POST)
-		form2 = self_second_form_class(request.POST)
+		form2 = self.second_form_class(request.POST)
 		if form.is_valid() and form2.is_valid():
 			solicitud = form.save(commit=False)
 			solicitud.persona = form2.save()
